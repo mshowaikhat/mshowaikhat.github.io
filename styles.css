@@ -563,12 +563,29 @@ section {
   color: var(--accent);
   background: var(--accent-soft);
   letter-spacing: -0.02em;
-  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .exp-card:hover .exp-logo {
   background: var(--accent);
   color: var(--bg);
   transform: rotate(-4deg);
+}
+.exp-logo--img {
+  background: #ffffff;
+  border-color: var(--border);
+  padding: 8px;
+  overflow: hidden;
+}
+.exp-logo--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.exp-card:hover .exp-logo--img {
+  background: #ffffff;
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px -8px rgba(255, 255, 255, 0.2);
 }
 .exp-head h3 {
   color: var(--text);
@@ -912,6 +929,24 @@ section {
   background: var(--accent);
   color: var(--bg);
   transform: rotate(-6deg) scale(1.05);
+}
+/* Logo variant — white background, original brand colors */
+.skills-icon--logo {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 5px;
+  overflow: hidden;
+}
+.skills-icon--logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.skills-group:hover .skills-icon--logo {
+  background: #ffffff;
+  color: inherit;
+  transform: scale(1.05);
 }
 .skills-group h3 {
   font-family: var(--mono);
