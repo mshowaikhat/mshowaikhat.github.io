@@ -305,6 +305,18 @@ section {
   font-size: 1.05rem;
   font-weight: 400;
 }
+.title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--accent-soft);
+  border-radius: 8px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  flex-shrink: 0;
+}
 .section-title::after {
   content: '';
   flex: 1;
@@ -530,6 +542,34 @@ section {
   border-color: var(--accent-soft);
 }
 
+.exp-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 4px;
+}
+.exp-logo {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  letter-spacing: -0.02em;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.exp-card:hover .exp-logo {
+  background: var(--accent);
+  color: var(--bg);
+  transform: rotate(-4deg);
+}
 .exp-head h3 {
   color: var(--text);
   font-size: 1.3rem;
@@ -758,6 +798,28 @@ section {
   background: rgba(0, 0, 0, 0.2);
 }
 
+.arch-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.arch-link:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+  background: var(--accent-soft);
+  transform: none;
+}
+
 .project-eyebrow {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -826,12 +888,37 @@ section {
   transform: translateY(-3px);
   border-color: var(--accent-soft);
 }
+.skills-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.skills-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.skills-group:hover .skills-icon {
+  background: var(--accent);
+  color: var(--bg);
+  transform: rotate(-6deg) scale(1.05);
+}
 .skills-group h3 {
   font-family: var(--mono);
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  margin-bottom: 14px;
+  margin: 0;
   letter-spacing: 0.05em;
 }
 .skills-group ul {

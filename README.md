@@ -51,10 +51,3 @@ To change the accent color, edit `--accent` in `styles.css:8`.
 
 To add a project, copy any `<article class="project-card">` block in `index.html` and edit it.
 
-## Custom domain (optional, later)
-
-If you ever buy a domain (e.g. `showaikhat.dev`):
-
-1. Add a `CNAME` file at the root containing your domain (one line, no protocol)
-2. In your DNS, point `A` records to GitHub Pages IPs (185.199.108.153 etc.) or `CNAME` your apex/`www` to `mshowaikhat.github.io`
-3. In repo Settings → Pages, set the custom domain and enable "Enforce HTTPS"
