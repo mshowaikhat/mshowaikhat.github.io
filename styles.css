@@ -790,8 +790,8 @@ section {
 }
 .contribution pre {
   font-family: var(--mono);
-  font-size: 0.68rem;
-  line-height: 1.5;
+  font-size: 0.7rem;
+  line-height: 1.1;
   color: var(--text-dim);
   margin: 0;
   white-space: pre;
@@ -1222,7 +1222,7 @@ section#contact.in-view > *,
   :root { --pad-x: 100px; }
 }
 @media (max-width: 1080px) {
-  .nav-links ol { display: none; }
+  .nav-links { display: none; }
   .burger { display: block; }
 }
 @media (max-width: 900px) {
