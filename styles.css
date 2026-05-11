@@ -549,11 +549,11 @@ section {
   margin-bottom: 4px;
 }
 .exp-logo {
-  width: 56px;
-  height: 56px;
+  width: 80px;
+  height: 80px;
   flex-shrink: 0;
   border: 1.5px solid var(--accent);
-  border-radius: 10px;
+  border-radius: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -573,7 +573,7 @@ section {
 .exp-logo--img {
   background: #ffffff;
   border-color: var(--border);
-  padding: 8px;
+  padding: 10px;
   overflow: hidden;
 }
 .exp-logo--img img {
