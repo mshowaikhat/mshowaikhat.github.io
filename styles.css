@@ -217,8 +217,11 @@ a { color: var(--accent); text-decoration: none; }
   background: var(--bg-elev);
   z-index: 80;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  padding: 24px;
   transform: translateX(100%);
   transition: transform 0.35s var(--ease);
   box-shadow: -10px 0 30px -10px rgba(0, 0, 0, 0.7);
@@ -788,13 +791,25 @@ section {
   color: var(--accent);
   margin-bottom: 10px;
 }
+.contribution pre,
+.contribution pre code,
+.contribution pre span {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.15;
+  letter-spacing: 0;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  font-feature-settings: "calt" 0, "liga" 0, "dlig" 0;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-feature-settings: "calt" 0, "liga" 0;
+  text-rendering: geometricPrecision;
+}
 .contribution pre {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  line-height: 1.1;
   color: var(--text-dim);
   margin: 0;
   white-space: pre;
+  display: inline-block;
 }
 .contribution .t-mute { color: #3b465c; }
 .contribution .t-key  { color: var(--accent); }
@@ -802,7 +817,9 @@ section {
 .contribution .t-str  { color: #ffd479; }
 
 @media (max-width: 480px) {
-  .contribution pre { font-size: 0.6rem; }
+  .contribution pre,
+  .contribution pre code,
+  .contribution pre span { font-size: 0.65rem; }
 }
 
 .project-head {
