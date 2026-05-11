@@ -1143,7 +1143,7 @@ section .section-title,
 section.in-view .section-title,
 section.in-view .about-grid,
 section.in-view .exp-card,
-section.in-view #contact > *,
+section#contact.in-view > *,
 .in-view .project-card,
 .in-view .skills-group,
 .in-view .certs-list li {
