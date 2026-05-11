@@ -771,17 +771,17 @@ section {
   border-color: var(--accent);
 }
 
-/* "My contribution" inline ASCII block (inside card body) */
+/* "My contribution" callout (inside card body) */
 .contribution {
   margin: 0 0 22px;
-  padding: 14px 16px 16px;
+  padding: 14px 16px 14px;
   background:
     radial-gradient(ellipse at top, rgba(100, 255, 218, 0.05) 0%, transparent 70%),
     #0c1120;
   border: 1px solid var(--border-soft);
   border-left: 2px solid var(--accent);
   border-radius: var(--radius);
-  overflow-x: auto;
+  overflow: hidden;
 }
 .contribution figcaption {
   font-family: var(--mono);
@@ -789,37 +789,25 @@ section {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-.contribution pre,
-.contribution pre code,
-.contribution pre span {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.75rem;
-  line-height: 1.15;
-  letter-spacing: 0;
-  font-kerning: none;
-  font-variant-ligatures: none;
-  font-feature-settings: "calt" 0, "liga" 0, "dlig" 0;
-  font-variant-numeric: tabular-nums;
-  -webkit-font-feature-settings: "calt" 0, "liga" 0;
-  text-rendering: geometricPrecision;
+.contribution-img {
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  line-height: 0;
 }
-.contribution pre {
-  color: var(--text-dim);
-  margin: 0;
-  white-space: pre;
-  display: inline-block;
+.contribution-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
+  filter: brightness(0.95);
 }
-.contribution .t-mute { color: #3b465c; }
-.contribution .t-key  { color: var(--accent); }
-.contribution .t-dim  { color: var(--text-faint); }
-.contribution .t-str  { color: #ffd479; }
-
-@media (max-width: 480px) {
-  .contribution pre,
-  .contribution pre code,
-  .contribution pre span { font-size: 0.65rem; }
+.contribution-img:hover img {
+  transform: scale(1.015);
+  filter: brightness(1.02);
 }
 
 .project-head {
