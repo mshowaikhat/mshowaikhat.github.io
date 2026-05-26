@@ -1150,6 +1150,29 @@ section {
   transform: translate(2px, -2px);
 }
 
+/* Certificate display (visual artifact, not linked) */
+.cert-certificate {
+  margin: 0;
+  padding: 14px;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cert-certificate img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.35);
+}
+.certs-list li.has-certificate { padding: 0; }
+.certs-list li.has-certificate:hover { transform: none; }
+.certs-list li.has-certificate .cert-link {
+  border-bottom: 1px solid transparent;
+}
+
 /* ============================================================
    CONTACT
    ============================================================ */
