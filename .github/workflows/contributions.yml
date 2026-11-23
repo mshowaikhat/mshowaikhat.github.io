@@ -1,0 +1,58 @@
+name: Refresh contribution data
+
+# Rewrites assets/contributions.json once a day so the activity grid on the
+# site stays current without visitors calling the GitHub API.
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch contribution calendar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LOGIN: ${{ github.repository_owner }}
+        run: |
+          gh api graphql -f login="$LOGIN" -f query='
+            query($login: String!) {
+              user(login: $login) {
+                contributionsCollection {
+                  contributionCalendar {
+                    totalContributions
+                    weeks { contributionDays { date contributionCount contributionLevel } }
+                  }
+                }
+              }
+            }' > raw.json
+          node -e '
+            const cal = JSON.parse(require("fs").readFileSync("raw.json", "utf8")).data.user.contributionsCollection.contributionCalendar;
+            const L = { NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 };
+            const days = cal.weeks.flatMap(w => w.contributionDays);
+            if (!days.length) throw new Error("empty calendar");
+            require("fs").writeFileSync("assets/contributions.json", JSON.stringify({
+              total: cal.totalContributions,
+              start: days[0].date,
+              end: days[days.length - 1].date,
+              levels: days.map(d => L[d.contributionLevel]).join(""),
+              counts: days.map(d => d.contributionCount),
+            }));
+          '
+          rm raw.json
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- assets/contributions.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/contributions.json
+          git commit -m "Refresh contribution data"
+          git push
